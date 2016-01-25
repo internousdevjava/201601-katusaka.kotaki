@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class KisoKadai2 {
 
@@ -49,26 +51,30 @@ public class KisoKadai2 {
 		while(state == 0){
 			try {
 				str = buf.readLine();
-				num = Integer.parseInt(str);
 
-				if(num == ran){
-					System.out.println("正解です。おめでとうございます。");
-					score += 10;
-					Playing(state);
-				}else if( num == 1111 ){
-					GameOver(state,ran);
-				}else if( (num <= 0) || (100 < num) ){
-					System.out.println("値が不正です。\n1から100までの数字を入力してください。");
-				}else if(num > ran){
-					System.out.println(num +"より小さい数です。");
-				}else if(num < ran){
-					System.out.println(num +"より大きい数です。");
+				if(isNumber(str)){                 //追加箇所
+					num = Integer.parseInt(str);
+
+
+					if(num == ran){
+						System.out.println("正解です。おめでとうございます。");
+						score += 10;
+						Playing(state);
+					}else if( num == 1111 ){
+						GameOver(state,ran);
+					}else if( (num <= 0) || (100 < num) ){
+						System.out.println("値が不正です。\n1から100までの数字を入力してください。");
+					}else if(num > ran){
+						System.out.println(num +"より小さい数です。");
+					}else if(num < ran){
+						System.out.println(num +"より大きい数です。");
+					}
 				}else{
 					System.out.println("数字を入力してください。");
-					break;
 				}
+
 			} catch (NumberFormatException e){
-				System.out.println(e);
+				System.out.println("入力エラーです。");
 			} catch (IOException e) {
 				System.out.println(e);
 			}
@@ -106,5 +112,13 @@ public class KisoKadai2 {
 		} catch (IOException e) {
 			System.out.println(e);
 		}
+	}
+
+	//数字かどうかチェックする関数
+	public static boolean isNumber(String num) {
+		String regex = "[0-9]";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(num);
+		return m.find();
 	}
 }
