@@ -1,10 +1,10 @@
 CREATE TABLE struts2.user
 (
-    user_id                     INT,
+    user_id                     INT auto_increment,
     password                    VARCHAR(255),
     user_name                   VARCHAR(50) NOT NULL,
     name_kana                   VARCHAR(50),
-    mail_adress                 VARCHAR(100),
+    mail_adress                 VARCHAR(100) unique,
     credit_number               VARCHAR(4),
     token                       VARCHAR(255),
     unique_id                   VARCHAR(50),
