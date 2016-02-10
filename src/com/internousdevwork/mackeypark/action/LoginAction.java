@@ -11,54 +11,48 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internous
  *
  */
-public class LoginAction extends ActionSupport implements SessionAware{
-	public String id;
-	public String password;
-	private Map<String,Object>session;
 
+//ログイン画面でログインボタンを押すと呼ばれるクラス
+public class LoginAction extends ActionSupport implements SessionAware{
+
+	private String mail_adress;			//ID用のメールアドレス
+	private String password;			//パスワード
+	private Map<String,Object>session;	//セッションスコープに保存するためのマップリスト
+
+	@SuppressWarnings("unused")
+	private String attention;	//ログイン失敗時の表示を格納する変数
+
+	//struts.xmlの method = "execute" で呼ばれている
 	public String execute(){
 
-		LoginDAO dao = new LoginDAO(); //LoginDAOクラスを作成すると波線が消える
+		//LoginDAOクラスを呼び出し
+		LoginDAO dao = new LoginDAO();
 
-		boolean res = dao.select(id,password);
-
-		if(!res){
+		//データベースからID(メールアドレス)とパスワードが見つからなければ
+		if(!dao.isRegister(mail_adress, password)){
+			//ログイン失敗時に以下を表示させる
+			setAttention("ID、もしくはパスワードが間違っています。");
+			//struts.xmlにERRORを返す（ログイン画面へ）
 			return ERROR;
 		}
-		 LoginDTO dto = new LoginDTO(id, password);
+		//見つかった場合はLoginDTOを呼び出し
+		 LoginDTO dto = new LoginDTO(mail_adress, password);
 
-	        session.put("id", dto.getId());
+		//ユーザーのIDを"user_id"というキーでセッションスコープに保存。以下略
+		 session.put("user_id", dto.getUserId());
+		 session.put("mail_adress", mail_adress );
+		 session.put("password", password );
 
-		session.put("id", id );
-
-		session.put("name_key", password );
-
-
+		//struts.xmlにSUCCESSを返す（メイン画面へ）
 		return SUCCESS;
 	}
 
-	public String getId(){
-		return id;
+	public void setAttention(String attention) {
+		this.attention = attention;
 	}
 
-	public void setId(String id){
-		this.id = id;
-	}
-
-	public String getPass(){
-		return password;
-	}
-
-	public void setPass(String password){
-		this.password = password;
-	}
-
-	public Map<String, Object> getSession(){
-		return session;
-	}
-
+	//インターフェースSessionAwareの抽象メソッド
 	public void setSession(Map<String, Object> session){
 		this.session = session;
 	}
-
 }

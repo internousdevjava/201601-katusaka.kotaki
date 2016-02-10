@@ -13,3 +13,6 @@ CREATE TABLE struts2.user
     update_date                 DATETIME NOT NULL,
     CONSTRAINT PRIMARY KEY (user_id)
 );
+
+INSERT INTO user(password, user_name, name_kana, mail_adress, registration_date, update_date)
+			values('12345','田中太郎','タナカタロウ','internous@gmail.com', '20491004152507', '09521004152507')

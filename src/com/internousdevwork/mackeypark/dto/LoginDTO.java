@@ -6,22 +6,21 @@ package com.internousdevwork.mackeypark.dto;
  *
  */
 public class LoginDTO {
-	private String id;
+	private String 	mail_adress;
 	private String password;
+	private int user_id;	//user_idはauto_incrementなのでゲッターのみ
 
-	public LoginDTO(String id, String password){
-		this.id = id;
+	public LoginDTO(String mail_adress, String password) {	//コンストラクタ
+		this.mail_adress = mail_adress;
 		this.password = password;
 	}
 
-	
-	
-	public String getId() {
-		return id;
+	public String getMailAdress() {		//以下ゲッターとセッター
+		return mail_adress;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setMailAdress(String mail_adress) {
+		this.mail_adress = mail_adress;
 	}
 
 	public String getPassword() {
@@ -30,6 +29,10 @@ public class LoginDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public int getUserId() {
+		return user_id;
 	}
 
 }

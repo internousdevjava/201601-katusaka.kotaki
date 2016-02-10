@@ -82,15 +82,19 @@ table{
 }
 
 li {
-display: inline;
-margin-right: 30px;
-}
+	font-size:25px;
+	display: inline;
+	margin-right: 30px;
+	}
 
 h4{
 	color: #4eb4c2;
 	font-weight: bold;
 	}
-
-.listFont{
-  font-size:25px;
+p{
+	font-weight: bold;
+}
+.attention{
+	text-align: center;
+	font-color:#ff0000
 }

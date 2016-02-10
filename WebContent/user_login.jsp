@@ -12,26 +12,28 @@
 
 <h1>ログイン</h1>
 
-	<div class="skin">
+<div class="skin">
 	<h3>下記に情報を入力してください。</h3><br>
+
+<div class = "attention"><s:property  value="attention"/></div>
 
 <!-- ログイン -->
 	<s:form action="LoginAction">
 		<table>
 		<tr>
-		<td><h4>ID(メールアドレス): <s:textfield name="user_id"/></h4></td>
+		<td><h4>ID(メールアドレス): <s:textfield name="mail_adress"/></h4></td>
 		</tr>
 		<tr>
 		<td><h4>パスワード :　　　　　<s:password name="password"/><br></h4></td>
 		</tr>
 		</table>
-	<s:submit class="loginBtn" value="ログイン"/>
+	<s:submit cssClass="loginBtn" value="ログイン"/>
 </s:form>
 
 <br>
 <br>
 		<ul>
-		<li class="listFont">SNS認証はこちら</li>
+		<li>SNS認証はこちら</li>
 		<!-- フェイスブック  -->
 		<li><s:url var="facebook" action="login-facebook" />
        	<s:a href="%{facebook}" ><img src="img/Facebook.jpg" style="zoom: 40%;"></s:a></li>
@@ -44,13 +46,13 @@
         <li><s:url var="twitter" action="login-twitter" />
         <s:a href="%{twitter}"><img src="img/GooglePlusIcon.jpg" style="zoom: 32%;"></s:a></li>
 		</ul>
-	</div>
+</div>
 
 	<p>登録していない方はこちらから新規登録してください</p>
 
 <!-- 新規登録 -->
 <s:form action="newuser">
-<s:submit class="registBtn" value="新規登録"/>
+<s:submit cssClass="registBtn" value="新規登録"/>
 </s:form>
 
 </body>
