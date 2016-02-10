@@ -9,6 +9,7 @@
 <title>ログイン</title>
 </head>
 <body>
+
 <h1>ログイン</h1>
 
 	<div class="skin">
