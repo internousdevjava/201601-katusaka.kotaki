@@ -55,7 +55,6 @@ public class KisoKadai2 {
 				if(isNumber(str)){                 //追加箇所
 					num = Integer.parseInt(str);
 
-
 					if(num == ran){
 						System.out.println("正解です。おめでとうございます。");
 						score += 10;
