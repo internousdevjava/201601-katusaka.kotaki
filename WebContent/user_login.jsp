@@ -18,12 +18,12 @@
 <!-- ログイン -->
 	<s:form action="LoginAction">
 		<table>
-			<tr>
-			<td><h4>ID(メールアドレス): <s:textfield name="user_id"/></h4></td>
-			</tr>
-			<tr>
-			<td><h4>パスワード :　　　　　<s:password name="password"/><br></h4></td>
-			</tr>
+		<tr>
+		<td><h4>ID(メールアドレス): <s:textfield name="user_id"/></h4></td>
+		</tr>
+		<tr>
+		<td><h4>パスワード :　　　　　<s:password name="password"/><br></h4></td>
+		</tr>
 		</table>
 	<s:submit class="loginBtn" value="ログイン"/>
 </s:form>
@@ -31,18 +31,18 @@
 <br>
 <br>
 		<ul>
-			<li class="listFont">SNS認証はこちら</li>
-			<!-- フェイスブック  -->
-			<li><s:url var="facebook" action="login-facebook" />
-       		<s:a href="%{facebook}" ><img src="img/Facebook.jpg" style="zoom: 40%;"></s:a></li>
+		<li class="listFont">SNS認証はこちら</li>
+		<!-- フェイスブック  -->
+		<li><s:url var="facebook" action="login-facebook" />
+       	<s:a href="%{facebook}" ><img src="img/Facebook.jpg" style="zoom: 40%;"></s:a></li>
 
-       		<!-- グーグル  -->
-			<li><s:url var="google" action="login-google" />
-        	<s:a href="%{google}"><img src="img/twitter.jpg" style="zoom: 20%;"></s:a></li>
+       	<!-- グーグル  -->
+		<li><s:url var="google" action="login-google" />
+        <s:a href="%{google}"><img src="img/twitter.jpg" style="zoom: 20%;"></s:a></li>
 
-        	<!-- ツイッター -->
-        	<li><s:url var="twitter" action="login-twitter" />
-        	<s:a href="%{twitter}"><img src="img/GooglePlusIcon.jpg" style="zoom: 32%;"></s:a></li>
+        <!-- ツイッター -->
+        <li><s:url var="twitter" action="login-twitter" />
+        <s:a href="%{twitter}"><img src="img/GooglePlusIcon.jpg" style="zoom: 32%;"></s:a></li>
 		</ul>
 	</div>
 
