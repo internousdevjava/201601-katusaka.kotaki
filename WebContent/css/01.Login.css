@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+/* layout */
+body{
+	text-align: center;
+}
+
+h1{
+	color: #4eb4c2;
+}
+
+input[type="text"],
+[type="password"] {
+  width:160px;
+  padding: 4px;
+  font-size: 10px;
+  text-align: left;
+  }
+
+/* skin */
+.skin{
+  width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #555;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 1px 10px #488a9e;
+  -moz-box-shadow: 0px 1px 10px #488a9e;
+  box-shadow: 0px 1px 10px #488a9e;
+  border: solid #4eb4c2 1px;
+  background: #fafafa;
+  }
+
+table{
+	 margin-left:auto;
+	 margin-right:auto;
+}
+
+.loginBtn , .registBtn{
+    /* 文字サイズを1.4emに指定 */
+    font-size: 1.4em;
+
+    /* 文字の太さをboldに指定 */
+    font-weight: bold;
+
+    /* 縦方向に10px、
+     * 横方向に30pxの余白を指定 */
+    padding: 10px 30px;
+
+    /* 文字色を白色に指定 */
+    color: #fff;
+
+    /* ボーダーをなくす */
+    border-style: none;
+
+    /* ボタンの影の指定
+     * 影の横幅を2px
+     * 縦長を2px
+     * ぼかしを3px
+     * 広がりを1px
+     * 色を#666（グレー）に指定 */
+    box-shadow: 2px 2px 3px 1px #666;
+    -moz-box-shadow: 2px 2px 3px 1px #666;
+    -webkit-box-shadow: 2px 2px 3px 1px #666;
+
+    /* テキストの影の指定
+     * 影の横幅を1px
+     * 縦長を1px
+     * ぼかしを2px
+     * 色を#000（黒）に指定 */
+    text-shadow: 1px 1px 2px #000;
+
+    /* 色の指定 */
+    background:#7fbfff;
+
+    /* 角丸の指定 */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+li {
+display: inline;
+margin-right: 30px;
+}
+
+h4{
+	color: #4eb4c2;
+	font-weight: bold;
+	}
+
+.listFont{
+  font-size:25px;
+}
