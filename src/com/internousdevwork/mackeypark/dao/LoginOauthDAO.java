@@ -33,7 +33,7 @@ public class LoginOauthDAO{
 		boolean result = false;
 		con = DBConnector.getConnection();
 		try{
-			String sql = "SELECT * FROM user WHERE  = unique_id ? AND oauth_name = ?";
+			String sql = "SELECT * FROM user WHERE  unique_id  = ? AND oauth_name = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1,userUniqueId);
 			stmt.setString(2,oauthName);

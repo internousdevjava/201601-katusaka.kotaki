@@ -15,7 +15,7 @@
 <div class="skin">
 	<h3>下記に情報を入力してください。</h3><br>
 
-<div><s:property  value="attention"/></div>
+<s:text name = "%{getText('login.error')}"/>
 
 <!-- ログイン -->
 	<s:form action="LoginAction">
@@ -38,22 +38,22 @@
 		<li><s:url var="facebook" action="login-facebook" />
        	<s:a href="%{facebook}" ><img src="img/Facebook.jpg" style="zoom: 40%;"></s:a></li>
 
-       	<!-- グーグル  -->
-		<li><s:url var="google" action="login-google" />
-        <s:a href="%{google}"><img src="img/twitter.jpg" style="zoom: 20%;"></s:a></li>
-
         <!-- ツイッター -->
         <li><s:url var="twitter" action="login-twitter" />
-        <s:a href="%{twitter}"><img src="img/GooglePlusIcon.jpg" style="zoom: 32%;"></s:a></li>
-		</ul>
+        <s:a href="%{twitter}"><img src="img/twitter.jpg" style="zoom: 20%;"></s:a></li>
+
+		<!-- グーグル  -->
+		<li><s:url var="google" action="login-google" />
+        <s:a href="%{google}"><img src="img/GooglePlusIcon.jpg" style="zoom: 32%;"></s:a></li>
+        </ul>
 </div>
 
 	<p>登録していない方はこちらから新規登録してください</p>
 
-<!-- 新規登録
+ <!-- 新規登録 -->
 <s:form action="newuser">
 <s:submit cssClass="registBtn" value="新規登録"/>
 </s:form>
- -->
+
 </body>
 </html>

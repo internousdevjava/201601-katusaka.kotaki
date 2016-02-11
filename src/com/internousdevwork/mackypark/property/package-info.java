@@ -5,4 +5,4 @@
  * @author internous
  *
  */
-package com.internousdev.prototype1601.property;
+package com.internousdevwork.mackypark.property;

@@ -7,10 +7,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdevwork.mackeypark.dao.LoginDAO;
 import com.internousdevwork.mackeypark.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
-/**
- * @author internous
- *
- */
 
 //ログイン画面でログインボタンを押すと呼ばれるクラス
 public class LoginAction extends ActionSupport implements SessionAware{
