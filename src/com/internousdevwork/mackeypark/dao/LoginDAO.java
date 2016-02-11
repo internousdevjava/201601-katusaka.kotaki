@@ -10,25 +10,25 @@ import com.internousdevwork.mackeypark.util.DBConnector;
 //データベースとやり取りしてユーザーが登録されているか確認するクラス
 public class LoginDAO {
 
-	private Connection con;
+
 
 	public boolean isRegister(String mail_adress, String password){
 
-		con = null;
+		Connection con = DBConnector.getConnection();	//DBに接続
+		String sql = "SELECT * FROM user WHERE mail_adress=? AND password=?";  //テーブル(user)から入力されたmail_adressとpasswordを検索
 
 		try{
-			con = DBConnector.getConnection();	//DBに接続
-			String sql = "SELECT *  FROM user WHERE mail_adress = ? AND password = ? ";  //テーブル(user)から入力されたmail_adressとpasswordを検索
-
 			PreparedStatement ps = con.prepareStatement(sql);		//DBにSQL文を送信する
+
 			ps.setString(1, mail_adress);		//取ってきたデータを1にmail_adressとしてセット
 			ps.setString(2, password);			//取ってきたデータを2にpasswordとしてセット
-
 			ResultSet rs = ps.executeQuery(); //結果を受け取る
 
+			System.out.println(mail_adress + "：" + password);
+
 			if(rs.next()){
-				//結果を確認して登録があれば
-				return true;	//トゥルー
+				//結果を確認して登録があればトゥルー
+				return true;
 			}
 		}catch(SQLException e){			//それ以外はフォルス
 			e.printStackTrace();

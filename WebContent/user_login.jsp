@@ -24,13 +24,13 @@
 </c:if>
 
 <!-- ログイン -->
-	<s:form action="LoginAction">
+	<s:form action="LoginAction" namespace="/">
 		<table>
 		<tr>
-		<td><h4>ID(メールアドレス): <s:textfield name="mail_adress"/></h4></td>
+		<td><h4>ID(メールアドレス): <s:textfield name="mail_adress" value=""/></h4></td>
 		</tr>
 		<tr>
-		<td><h4>パスワード :　　　　　<s:password name="password"/><br></h4></td>
+		<td><h4>パスワード :　　　　　<s:password name="password" value="" /><br></h4></td>
 		</tr>
 		</table>
 	<s:submit cssClass="loginBtn" value="ログイン"/>
@@ -57,7 +57,7 @@
 	<p>登録していない方はこちらから新規登録してください</p>
 
  <!-- 新規登録 -->
-<s:form action="newuser">
+<s:form action="newuser" namespace="/">
 <s:submit cssClass="registBtn" value="新規登録"/>
 </s:form>
 

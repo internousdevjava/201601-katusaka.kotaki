@@ -21,29 +21,29 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	//struts.xmlの method = "execute" で呼ばれている
 	public String execute(){
-
+		String result = ERROR;
 		//LoginDAOクラスを呼び出し
 		LoginDAO dao = new LoginDAO();
 
-		boolean result = dao.isRegister(mail_adress, password);
-
 		//データベースからID(メールアドレス)とパスワードが見つからなければ
-		if(!result){
-			isLogin = false;
-			session.put("isLogin", isLogin);
-			//struts.xmlにERRORを返す（ログイン画面へ）
-			return ERROR;
+		if(dao.isRegister(mail_adress, password)){
+			//見つかった場合はLoginDTOを呼び出し
+			 LoginDTO dto = new LoginDTO(mail_adress, password);
+
+			 //ユーザーのIDを"user_id"というキーでセッションスコープに保存。以下略
+			 session.put("user_id", dto.getUserId());
+			 session.put("mail_adress", mail_adress );
+			 session.put("password", password );
+
+			//struts.xmlにSUCCESSを返す（メイン画面へ）
+			result = SUCCESS;
 		}
-		//見つかった場合はLoginDTOを呼び出し
-		 LoginDTO dto = new LoginDTO(mail_adress, password);
 
-		 //ユーザーのIDを"user_id"というキーでセッションスコープに保存。以下略
-		 session.put("user_id", dto.getUserId());
-		 session.put("mail_adress", mail_adress );
-		 session.put("password", password );
+		isLogin = false;
+		session.put("isLogin", isLogin);
+		//struts.xmlにERRORを返す（ログイン画面へ）
 
-		//struts.xmlにSUCCESSを返す（メイン画面へ）
-		return SUCCESS;
+		return result;
 	}
 
 	//インターフェースSessionAwareの抽象メソッド
