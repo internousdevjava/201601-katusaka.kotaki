@@ -49,7 +49,6 @@ public class LoginGoogleAction extends ActionSupport implements
 
 		GoogleOauth googleOauth = new GoogleOauth();
 		Map<String, String> userMap = googleOauth.getAccessToken(request);
-		System.out.println("エラー１");
 		System.out.println(userMap);
 		if (userMap == null) {
 			return rtn;
@@ -65,7 +64,6 @@ public class LoginGoogleAction extends ActionSupport implements
 			return rtn;
 		}
 
-		System.out.println("エラー２");
 		boolean result = dao.insert(uniqueId, userName, NETWORK_NAME);
 		if (!result) {
 			return rtn;

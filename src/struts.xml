@@ -8,11 +8,11 @@
 <constant name="struts.ui.theme" value="simple" />
 <package name="Prototype" namespace="/" extends="struts-default">
 
-	    <!-- ログイン
+	    <!-- ログイン-->
 	    <action name="LoginAction" class="com.internousdevwork.mackeypark.action.LoginAction" method="execute">
 	        <result name="success">main.jsp</result>
-	        <result name="error">user_login.jsp</result>
-	        </action>-->
+	        <result name="error">create_user.jsp</result>
+	        </action>
 
         <!-- ログインページから新規を押した際のアクション
         <action name="newuser" class="com.internousdev.prototype1601.action.NewUserAction" method="execute">
@@ -20,39 +20,39 @@
         </action> -->
 
         <!-- Facebook認証を行うアクション
-        <action name="login-facebook" class="com.internousdev.prototype1601.action.GoFacebookAction" method="execute">
-            <result name="success">login.jsp</result>
-            <result name="error">login.jsp</result>
+        <action name="login-facebook" class="com.internousdev.mackeypark.action.GoFacebookAction" method="execute">
+            <result name="success">user_login.jsp</result>
+            <result name="error">user_login.jsp</result>
         </action>-->
 
         <!--  Facebook認証のコールバックアクション
-        <action name="login-facebook-action" class="com.internousdev.prototype1601.action.LoginFacebookAction" method="execute">
+        <action name="login-facebook-action" class="com.internousdev.mackeypark.action.LoginFacebookAction" method="execute">
             <result name="success">main.jsp</result>
-            <result name="error">login.jsp</result>
+            <result name="error">user_login.jsp</result>
         </action>-->
 
-        <!-- Google認証を行うアクション
-        <action name="login-google" class="com.internousdev.prototype1601.action.GoGoogleAction" method="execute">
+        <!-- Google認証を行うアクション-->
+        <action name="login-google" class="com.internousdev.mackeypark.action.GoGoogleAction" method="execute">
             <result name="success">main.jsp</result>
-            <result name="error">login.jsp</result>
-        </action>-->
+            <result name="error">user_login.jsp</result>
+        </action>
 
-        <!-- Google認証のコールバックアクション
-        <action name="login-google-action" class="com.internousdev.prototype1601.action.LoginGoogleAction" method="execute">
+        <!-- Google認証のコールバックアクション-->
+        <action name="login-google-action" class="com.internousdev.mackeypark.action.LoginGoogleAction" method="execute">
             <result name="success">main.jsp</result>
-            <result name="error">login.jsp</result>
-        </action>-->
+            <result name="error">user_login.jsp</result>
+        </action>
 
         <!-- Twitter認証を行うアクション
-        <action name="login-twitter" class="com.internousdev.prototype1601.action.GoTwitterAction" method="execute">
-           <result name="success">login.jsp</result>
-           <result name="error">login.jsp</result>
-       </action> -->
+        <action name="login-twitter" class="com.internousdev.mackeypark.action.GoTwitterAction" method="execute">
+           <result name="success">user_login.jsp</result>
+           <result name="error">user_login.jsp</result>
+       </action>-->
 
         <!-- Twitter認証のコールバックアクション
-        <action name="login-twitter-action" class="com.internousdev.prototype1601.action.LoginTwitterAction" method="execute">
+        <action name="login-twitter-action" class="com.internousdev.mackeypark.action.LoginTwitterAction" method="execute">
             <result name="success">main.jsp</result>
-            <result name="error">login.jsp</result>
+            <result name="error">user_login.jsp</result>
         </action>-->
 
 	</package>

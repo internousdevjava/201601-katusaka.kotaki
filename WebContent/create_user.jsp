@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+新規登録ページ
 </body>
 </html>

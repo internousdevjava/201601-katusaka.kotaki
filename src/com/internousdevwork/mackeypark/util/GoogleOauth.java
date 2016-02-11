@@ -1,3 +1,13 @@
+/*
+ * タイトル：googleとoauth認証でのやり取りを行う処理
+ * 説明    ：ユーザーを情報を取得する。
+ *
+ * 著作権  ：Copyright(c) 2015 InterNous, Inc.
+ * 会社名  ：インターノウス株式会社
+ *
+ * 変更履歴：
+ *
+ */
 package com.internousdevwork.mackeypark.util;
 
 import java.util.LinkedHashMap;
@@ -18,16 +28,17 @@ import org.scribe.oauth.OAuthService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensymphony.xwork2.ActionSupport;
- /**
- * GoogleOAuth Googleでログインする為のクラス
- * @author 堅田 一成
+
+/**
+ * googleとoauth認証でのやり取りを行うクラス
+ * @author K.Abe
  * @since 1.0
  * @version 1.0
  */
 public class GoogleOauth extends ActionSupport {
 
 	/**
-	 * 生成されたシリアルナンバー
+	 * シリアルID
 	 */
 	private static final long serialVersionUID = -564268116563098912L;
 
@@ -45,8 +56,9 @@ public class GoogleOauth extends ActionSupport {
 	 * 空のトークン
 	 */
 	private static final Token EMPTY_TOKEN = null;
+
 	/**
-	 * ユーザー情報を取得するメソッド
+	 * ユーザー情報を取得する為のメソッド
 	 * @param request リクエスト
 	 * @param response レスポンス
 	 * @return map ユーザー情報
@@ -56,7 +68,7 @@ public class GoogleOauth extends ActionSupport {
 		try{
 			String apiKey = "744349982449-l4v3qgis4hvggk3k9cg7kpf1km3ebo55.apps.googleusercontent.com";
 			String apiSecret = "nsnu4QR9VRE4UuqyhH2Ts4Yt";
-			String callbackUrl = "http://localhost:8080/prototype1601/main.jsp";
+			String callbackUrl = "http://localhost:8080/prototype1601/login-google-action";
 
 			OAuthService service = new ServiceBuilder()
 			.provider(GoogleApi.class)
@@ -77,10 +89,11 @@ public class GoogleOauth extends ActionSupport {
 		}
 		return true;
 	}
+
 	/**
-	 * ユーザー情報のMAPを取得するメソッド
+	 * ユーザー情報のMAPを取得する為のメソッド
 	 * @param request リクエスト
-	 * @return map
+	 * @return map ユーザー情報
 	 */
 	public Map<String,String> getAccessToken(HttpServletRequest request){
 		Map<String,String> map;
@@ -107,5 +120,4 @@ public class GoogleOauth extends ActionSupport {
 		}
 		return map;
 	}
-
 }

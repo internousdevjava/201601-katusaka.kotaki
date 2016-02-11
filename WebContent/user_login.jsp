@@ -15,7 +15,7 @@
 <div class="skin">
 	<h3>下記に情報を入力してください。</h3><br>
 
-<div class = "attention"><s:property  value="attention"/></div>
+<div><s:property  value="attention"/></div>
 
 <!-- ログイン -->
 	<s:form action="LoginAction">
@@ -50,10 +50,10 @@
 
 	<p>登録していない方はこちらから新規登録してください</p>
 
-<!-- 新規登録 -->
+<!-- 新規登録
 <s:form action="newuser">
 <s:submit cssClass="registBtn" value="新規登録"/>
 </s:form>
-
+ -->
 </body>
 </html>

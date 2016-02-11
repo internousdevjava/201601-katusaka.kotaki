@@ -35,11 +35,13 @@ public class GoFacebookAction  extends ActionSupport implements ServletResponseA
 	 * FaceBookからTokenを取得メソッド
 	 * @return String
 	 */
-    public String execute() {
-    	FacebookOauth oauth = new FacebookOauth();
-		oauth.getRequestToken(request, response);
-		return SUCCESS;
-	}
+	   public String execute() {
+	    	FacebookOauth oauth = new FacebookOauth();
+			if(!oauth.getRequestToken(request, response)){
+				return ERROR;
+			}
+			return SUCCESS;
+		}
 
 	/**
 	 * リクエスト格納メソッド

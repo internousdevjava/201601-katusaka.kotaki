@@ -15,12 +15,11 @@ import com.opensymphony.xwork2.ActionSupport;
 //ログイン画面でログインボタンを押すと呼ばれるクラス
 public class LoginAction extends ActionSupport implements SessionAware{
 
+	private static final long serialVersionUID = 1L;
+
 	private String mail_adress;			//ID用のメールアドレス
 	private String password;			//パスワード
 	private Map<String,Object>session;	//セッションスコープに保存するためのマップリスト
-
-	@SuppressWarnings("unused")
-	private String attention;	//ログイン失敗時の表示を格納する変数
 
 	//struts.xmlの method = "execute" で呼ばれている
 	public String execute(){
@@ -28,27 +27,23 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		//LoginDAOクラスを呼び出し
 		LoginDAO dao = new LoginDAO();
 
+		boolean result = dao.isRegister(mail_adress, password);
+
 		//データベースからID(メールアドレス)とパスワードが見つからなければ
-		if(!dao.isRegister(mail_adress, password)){
-			//ログイン失敗時に以下を表示させる
-			setAttention("ID、もしくはパスワードが間違っています。");
+		if(!result){
 			//struts.xmlにERRORを返す（ログイン画面へ）
 			return ERROR;
 		}
 		//見つかった場合はLoginDTOを呼び出し
 		 LoginDTO dto = new LoginDTO(mail_adress, password);
 
-		//ユーザーのIDを"user_id"というキーでセッションスコープに保存。以下略
+		 //ユーザーのIDを"user_id"というキーでセッションスコープに保存。以下略
 		 session.put("user_id", dto.getUserId());
 		 session.put("mail_adress", mail_adress );
 		 session.put("password", password );
 
 		//struts.xmlにSUCCESSを返す（メイン画面へ）
 		return SUCCESS;
-	}
-
-	public void setAttention(String attention) {
-		this.attention = attention;
 	}
 
 	//インターフェースSessionAwareの抽象メソッド

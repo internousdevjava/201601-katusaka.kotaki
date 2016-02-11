@@ -33,7 +33,7 @@ public class LoginOauthDAO{
 		boolean result = false;
 		con = DBConnector.getConnection();
 		try{
-			String sql = "SELECT * FROM user WHERE unique_id = ? AND oauth_name = ?";
+			String sql = "SELECT * FROM user WHERE  = unique_id ? AND oauth_name = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1,userUniqueId);
 			stmt.setString(2,oauthName);
@@ -65,38 +65,39 @@ public class LoginOauthDAO{
 	 * @param oauthName OAuthのemail
 	 * @return result 結果
 	 */
-	public boolean insert(String uniqueId, String userName, String oauthName, String email) {
-		Connection con = null;
-		boolean result = false;
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		String now = sdf.format(cal.getTime());
-		con = DBConnector.getConnection();
-		String sql = "INSERT INTO user(email, user_name, unique_id, oauth_name, registration_date, update_date) values (?,?,?,?,?,?)";
-		try {
-			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, email);
-			stmt.setString(2, userName);
-			stmt.setString(3, uniqueId);
-			stmt.setString(4, oauthName);
-			stmt.setString(5, now);
-			stmt.setString(6, now);
 
-			int insertCount = stmt.executeUpdate();
-			if (insertCount > 0) {
-				result = true;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
+	//	public boolean insert(String uniqueId, String userName, String oauthName, String email) {
+	//		Connection con = null;
+	//		boolean result = false;
+	//		Calendar cal = Calendar.getInstance();
+	//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	//		String now = sdf.format(cal.getTime());
+	//		con = DBConnector.getConnection();
+	//		String sql = "INSERT INTO user(email, user_name, unique_id, oauth_name, registration_date, update_date) values (?,?,?,?,?,?)";
+	//		try {
+	//			PreparedStatement stmt = con.prepareStatement(sql);
+	//			stmt.setString(1, email);
+	//			stmt.setString(2, userName);
+	//			stmt.setString(3, uniqueId);
+	//			stmt.setString(4, oauthName);
+	//			stmt.setString(5, now);
+	//			stmt.setString(6, now);
+	//
+	//			int insertCount = stmt.executeUpdate();
+	//			if (insertCount > 0) {
+	//				result = true;
+	//			}
+	//		} catch (SQLException e) {
+	//			e.printStackTrace();
+	//		} finally {
+	//			try {
+	//				con.close();
+	//			} catch (SQLException e) {
+	//				e.printStackTrace();
+	//			}
+	//		}
+	//		return result;
+	//	}
 	/**
 	 * ユニークIDが無かったら作成
 	 * @param uniqueId OAuthのサービス先のユニークID
@@ -104,6 +105,7 @@ public class LoginOauthDAO{
 	 * @param oauthName OAuthのサービス名
 	 * @return result 結果
 	 */
+
 	public boolean insert(String uniqueId, String userName, String oauthName) {
 		Connection con = null;
 		boolean result = false;
@@ -111,7 +113,7 @@ public class LoginOauthDAO{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String now = sdf.format(cal.getTime());
 		con = DBConnector.getConnection();
-		String sql = "INSERT INTO user(user_name, unique_id, oauth_name, registration_date, update_date) values (?,?,?,?,?)";
+		String sql = "INSERT INTO user(user_name, unique_id, oauth_name, update_date, registration_date) values (?,?,?,?,?)";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, userName);
@@ -119,6 +121,7 @@ public class LoginOauthDAO{
 			stmt.setString(3, oauthName);
 			stmt.setString(4, now);
 			stmt.setString(5, now);
+
 
 			int insertCount = stmt.executeUpdate();
 			if (insertCount > 0) {
