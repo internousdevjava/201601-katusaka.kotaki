@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SNSLogin</title>
+<title>メイン</title>
 </head>
-	<body>
-		<h1>OK</h1>
-	</body>
+<body>
+<h1>メイン画面</h1>
+<a href="user_login.jsp">ログイン画面へ</a>
+</body>
 </html>

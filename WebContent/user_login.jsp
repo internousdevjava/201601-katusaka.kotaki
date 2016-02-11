@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +14,14 @@
 <h1>ログイン</h1>
 
 <div class="skin">
+
 	<h3>下記に情報を入力してください。</h3><br>
 
-<s:text name = "%{getText('login.error')}"/>
+<!-- ログインエラーメッセージ -->
+<c:if test="${isLogin == false}">
+<div class=errorMsg><s:property value = "%{getText('login.error')}"/></div>
+<c:remove var="isLogin"/>
+</c:if>
 
 <!-- ログイン -->
 	<s:form action="LoginAction">

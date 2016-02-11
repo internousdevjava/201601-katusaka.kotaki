@@ -13,6 +13,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	private static final long serialVersionUID = 1L;
 
+	private boolean isLogin;
+
 	private String mail_adress;			//ID用のメールアドレス
 	private String password;			//パスワード
 	private Map<String,Object>session;	//セッションスコープに保存するためのマップリスト
@@ -27,6 +29,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		//データベースからID(メールアドレス)とパスワードが見つからなければ
 		if(!result){
+			isLogin = false;
+			session.put("isLogin", isLogin);
 			//struts.xmlにERRORを返す（ログイン画面へ）
 			return ERROR;
 		}

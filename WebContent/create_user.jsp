@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-新規登録ページ
+<h1>新規登録ページ</h1>
+<a href="user_login.jsp">ログイン画面へ</a>
 </body>
 </html>
