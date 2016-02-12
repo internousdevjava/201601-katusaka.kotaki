@@ -41,7 +41,7 @@
 		<ul>
 		<li>SNS認証はこちら</li>
 		<!-- フェイスブック  -->
-		<li><s:url var="facebook" action="login-facebook" />
+		<li><s:url var="facebook" action="login-facebook"/>
        	<s:a href="%{facebook}" ><img src="img/Facebook.jpg" style="zoom: 40%;"></s:a></li>
 
         <!-- ツイッター -->

@@ -113,17 +113,16 @@ public class LoginOauthDAO{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String now = sdf.format(cal.getTime());
 		con = DBConnector.getConnection();
-		String sql = "INSERT INTO user(user_name, unique_id, oauth_name, update_date, registration_date) values (?,?,?,?,?)";
+		String sql = "INSERT INTO user(user_name, unique_id, oauth_name, registration_date) values (?,?,?,?)";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setString(1, userName);
 			stmt.setString(2, uniqueId);
 			stmt.setString(3, oauthName);
-			stmt.setString(4, now);
 
 			if(isFirstRegi()){
-			stmt.setString(5, now);
+			stmt.setString(4, now);
 			}
 
 			int insertCount = stmt.executeUpdate();
