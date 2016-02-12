@@ -27,13 +27,13 @@
 	<s:form action="LoginAction" namespace="/">
 		<table>
 		<tr>
-		<td><h4>ID(メールアドレス): <s:textfield name="mail_adress" value=""/></h4></td>
+		<td><h4>ID(メールアドレス): <s:textfield name="mail_adress" /></h4></td>
 		</tr>
 		<tr>
-		<td><h4>パスワード :　　　　　<s:password name="password" value="" /><br></h4></td>
+		<td><h4>パスワード :　　　　　<s:password name="password"  /><br></h4></td>
 		</tr>
 		</table>
-	<s:submit cssClass="loginBtn" value="ログイン"/>
+	<s:submit cssClass="loginBtn"  value="ログイン"/>
 </s:form>
 
 <br>

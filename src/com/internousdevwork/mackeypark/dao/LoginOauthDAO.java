@@ -116,12 +116,15 @@ public class LoginOauthDAO{
 		String sql = "INSERT INTO user(user_name, unique_id, oauth_name, update_date, registration_date) values (?,?,?,?,?)";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
+
 			stmt.setString(1, userName);
 			stmt.setString(2, uniqueId);
 			stmt.setString(3, oauthName);
 			stmt.setString(4, now);
-			stmt.setString(5, now);
 
+			if(isFirstRegi()){
+			stmt.setString(5, now);
+			}
 
 			int insertCount = stmt.executeUpdate();
 			if (insertCount > 0) {
@@ -134,6 +137,35 @@ public class LoginOauthDAO{
 				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	public boolean isFirstRegi(){
+
+		boolean result = false;
+		Connection con = DBConnector.getConnection();	//DBに接続
+		String sql = "SELECT * FROM user WHERE registration_date";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);		//DBにSQL文を送信する
+
+			ResultSet rs = ps.executeQuery(); //結果を受け取る
+
+			if(rs.next()){
+				result = true;
+			}
+
+		}catch(SQLException e){			//それ以外はフォルス
+			e.printStackTrace();
+		}finally{
+			if(con != null){
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return result;

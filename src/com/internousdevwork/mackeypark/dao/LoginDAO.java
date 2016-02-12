@@ -12,8 +12,9 @@ public class LoginDAO {
 
 
 
-	public boolean isRegister(String mail_adress, String password){
+	public boolean searching(String mail_adress, String password){
 
+		boolean result = false;
 		Connection con = DBConnector.getConnection();	//DBに接続
 		String sql = "SELECT * FROM user WHERE mail_adress=? AND password=?";  //テーブル(user)から入力されたmail_adressとpasswordを検索
 
@@ -24,15 +25,12 @@ public class LoginDAO {
 			ps.setString(2, password);			//取ってきたデータを2にpasswordとしてセット
 			ResultSet rs = ps.executeQuery(); //結果を受け取る
 
-			System.out.println(mail_adress + "：" + password);
-
 			if(rs.next()){
 				//結果を確認して登録があればトゥルー
-				return true;
+				result = true;
 			}
 		}catch(SQLException e){			//それ以外はフォルス
 			e.printStackTrace();
-			return false;
 		}finally{
 			if(con != null){
 				try {
@@ -42,6 +40,6 @@ public class LoginDAO {
 				}
 			}
 		}
-		return false;
+		return result;
 	}
 }

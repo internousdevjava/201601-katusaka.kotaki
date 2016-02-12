@@ -49,7 +49,6 @@ public class LoginGoogleAction extends ActionSupport implements
 
 		GoogleOauth googleOauth = new GoogleOauth();
 		Map<String, String> userMap = googleOauth.getAccessToken(request);
-		System.out.println(userMap);
 		if (userMap == null) {
 			return rtn;
 		}
