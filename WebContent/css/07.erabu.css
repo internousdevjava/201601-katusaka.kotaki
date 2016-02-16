@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+//選択一覧
+
+
+table{
+	width:700px;
+}
+
+th{
+	height:40px;
+	width:40px;
+}
+td{
+	height:80px;
+	width:400px;
+	text-align: center;
+}
+.no{
+	height:20px;
+	width:200px;
+}
+
+.kan {
+	font-size: 50px;
+}
+
+table, th, td {
+	border-color: aqua;
+	margin-bottom:10px;
+	text-align: center;
+}
+
+
+
+
+

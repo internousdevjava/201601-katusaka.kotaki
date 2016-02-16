@@ -55,20 +55,20 @@ public class FacebookOauth extends ActionSupport {
 	 */
 	public boolean getRequestToken(HttpServletRequest request, HttpServletResponse response) {
 
-		Facebook facebook = new FacebookFactory().getInstance(); //FacebookFactoryをインスタンス化
-		request.getSession().setAttribute("facebook", facebook); //セッションスコープに保存
+		Facebook facebook = new FacebookFactory().getInstance();
+		request.getSession().setAttribute("facebook", facebook);
 
-		facebook.setOAuthAppId(APP_ID, APP_SECRET);				 //facebookにIDとシークレットキーを設定
+		facebook.setOAuthAppId(APP_ID, APP_SECRET);
 
-		String accessTokenString = APP_ID + "|" + APP_SECRET;	//IDとシークレットキーを足した文字列を格納
-		AccessToken at = new AccessToken(accessTokenString);	//アクセストークンをインスタンス化
-		facebook.setOAuthAccessToken(at);						//facebookにアクセストークンを設定
+		String accessTokenString = APP_ID + "|" + APP_SECRET;
+		AccessToken at = new AccessToken(accessTokenString);
+		facebook.setOAuthAccessToken(at);
 
-		StringBuffer callbackURL = request.getRequestURL();		//リクエストしたURLを取得
-		int index = callbackURL.lastIndexOf("/");										//"/"の最後の位置をint型で取得
-		callbackURL.replace(index, callbackURL.length(), "").append(CALLBACK_PATH);	//最後のスラッシュ以降を消して、CALLBACK_PATHを挿入
+		StringBuffer callbackURL = request.getRequestURL();
+		int index = callbackURL.lastIndexOf("/");
+		callbackURL.replace(index, callbackURL.length(), "").append(CALLBACK_PATH);
 		try {
-			response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));	 //callbackURLにリダイレクト
+			response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;
@@ -87,7 +87,7 @@ public class FacebookOauth extends ActionSupport {
 		final String code = request.getParameter("code");
 		if(code == null){
 			try {
-				response.sendRedirect(request.getContextPath()+ "/login");
+				response.sendRedirect(request.getContextPath()+ "/user_login");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -170,5 +170,4 @@ public class FacebookOauth extends ActionSupport {
 		}
 		return response;
 	}
-
 }

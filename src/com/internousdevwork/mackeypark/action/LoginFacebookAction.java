@@ -60,34 +60,37 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware, 
 	 * @return FACEBOOK認証成功時SUCCESS FACEBOOK認証失敗時ERROR
 	 */
 	public String execute() {
-		String rtn = ERROR;
-		FacebookOauth oauth = new FacebookOauth();			//FacebookOauthをインスタンス化
+
+		FacebookOauth oauth = new FacebookOauth();
 		Map<String, String> userMap = null;
-		userMap = oauth.getAccessToken(request, response);	//アクセストークンを取得
+		userMap = oauth.getAccessToken(request, response);
 		if (userMap == null) {
-			return rtn;
-		}
-		String uniqueId = userMap.get("id");
-		String userName = userMap.get("name");
-		LoginOauthDAO dao = new LoginOauthDAO();			//LoginOauthDAOをインスタンス化
-		if (dao.select(uniqueId, NETWORK_NAME)) {			//selectメソッド
-			LoginOauthDTO dto = dao.getLoginOauthDTO();		//
-			session.put("loginId", dto.getUserId());
-			session.put("userName", dto.getUserName());
-			rtn = SUCCESS;
-			return rtn;
-		}
-		boolean result = dao.insert(uniqueId, userName, NETWORK_NAME);
-		if (!result) {
-			return rtn;
+			return ERROR;
 		}
 
-		dao.select(uniqueId, NETWORK_NAME);
+		String unique_id = userMap.get("id");
+		String user_name = userMap.get("name");
+		String mail_address = userMap.get("email");
+		LoginOauthDAO dao = new LoginOauthDAO();
+		if (dao.select(unique_id, NETWORK_NAME)) {
+			LoginOauthDTO dto = dao.getLoginOauthDTO();
+			session.put("user_Id", dto.getUnique_Id());
+			session.put("user_Name", dto.getUser_Name());
+			session.put("mail_address", dto.getMail_address());
+			return SUCCESS;
+		}
+
+		boolean result = dao.insert(user_name, mail_address, unique_id, NETWORK_NAME);
+		if (!result) {
+			return ERROR;
+		}
+
+		dao.select(unique_id, NETWORK_NAME);
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
-		session.put("loginId", dto.getUserId());
-		session.put("userName", dto.getUserName());
-		rtn = SUCCESS;
-		return rtn;
+		session.put("unique_id", dto.getUnique_Id());
+		session.put("user_Name", dto.getUser_Name());
+		session.put("mail_address", dto.getMail_address());
+		return SUCCESS;
 	}
 
 	/**

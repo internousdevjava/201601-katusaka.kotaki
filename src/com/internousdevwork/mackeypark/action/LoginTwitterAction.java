@@ -54,37 +54,37 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 	 */
 	public String execute() {
 
-		String rtn = ERROR;
 		TwitterOauth twitterOauth = new TwitterOauth();
-		String[] userData = new String[2];
+		String[] userData = new String[3];
 		userData = twitterOauth.getAccessToken(request, response);
 
 		if (userData == null) {
-			return rtn;
+			return ERROR;
 		}
 
-		String uniqueId = userData[0];
-		String userName = userData[1];
+		String unique_id = userData[0];
+		String user_name = userData[1];
+		String mail_address = userData[2];
 		LoginOauthDAO dao = new LoginOauthDAO();
-		if (dao.select(uniqueId, NETWORK_NAME)) {
+		if (dao.select(unique_id, NETWORK_NAME)) {
 			LoginOauthDTO dto = dao.getLoginOauthDTO();
-			session.put("loginId", dto.getUserId());
-			session.put("userName", dto.getUserName());
-			rtn = SUCCESS;
-			return rtn;
+			session.put("unique_id", dto.getUnique_Id());
+			session.put("user_name", dto.getUser_Name());
+			session.put("mail_address", dto.getMail_address());
+			return SUCCESS;
 		}
 
-		boolean result = dao.insert(uniqueId, userName, NETWORK_NAME);
+		boolean result = dao.insert(user_name, mail_address, unique_id, NETWORK_NAME);
 		if (!result) {
-			return rtn;
+			return ERROR;
 		}
 
-		dao.select(uniqueId, NETWORK_NAME);
+		dao.select(unique_id, NETWORK_NAME);
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
-		session.put("loginId", dto.getUserId());
-		session.put("userName", dto.getUserName());
-		rtn = SUCCESS;
-		return rtn;
+		session.put("unique_id", dto.getUnique_Id());
+		session.put("user_name", dto.getUser_Name());
+		session.put("mail_address", dto.getMail_address());
+		return SUCCESS;
 	}
 
 	/**

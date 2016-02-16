@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+
+
+body{
+	text-align:center;
+}
+
+
+.main-top h1{
+	text-align:center;
+}
+
+.main-top{
+	text-align:center;
+	margin-top:100px;
+}
+
+
+.choose{
+	margin-top:100px;
+}
+
+.choose-top{
+	float:left;
+	text-align:center;
+}
+
+
+
+.main-bottom{
+	border-bottom:1px solid #eee;
+	padding-bottom:80px;sasdffffffffdsaf
+}
+
+
+
+
+img{
+	width:150px;
+}
+
+.button-box{
+ text-align:center;
+ margin:0 auto;
+ margin-top:300px;
+}
+
+.choose-top table{
+	margin-left:300px;
+	margin-right:300px;
+}
+
+table tr th{
+	border:10px solid #c0c0c0;
+
+}
+
+table tr.border-img td{
+		border:10px solid #c0c0c0;
+}

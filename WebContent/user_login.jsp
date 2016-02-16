@@ -18,10 +18,7 @@
 	<h3>下記に情報を入力してください。</h3><br>
 
 <!-- ログインエラーメッセージ -->
-<c:if test="${isLogin == false}">
-<div class=errorMsg><s:property value = "%{getText('login.error')}"/></div>
-<c:remove var="isLogin"/>
-</c:if>
+<div class="errorMsg"><s:property value="ErrorMsg"/></div>
 
 <!-- ログイン -->
 	<s:form action="LoginAction" namespace="/">
@@ -57,7 +54,7 @@
 	<p>登録していない方はこちらから新規登録してください</p>
 
  <!-- 新規登録 -->
-<s:form action="newuser" namespace="/">
+<s:form action="GoCreateUserAction" namespace="/">
 <s:submit cssClass="registBtn" value="新規登録"/>
 </s:form>
 

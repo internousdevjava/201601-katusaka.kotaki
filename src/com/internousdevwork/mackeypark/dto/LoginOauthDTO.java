@@ -11,42 +11,52 @@ public class LoginOauthDTO{
 	/**
 	 * 名前
 	 */
-	private String userName;
+	private String user_Name;
 
 	/**
 	 * ユーザーID
 	 */
-	private int userId;
+	private String unique_Id;
+
+	private String mail_address;
+
+	public String getMail_address() {
+		return mail_address;
+	}
+
+	public void setMail_address(String mail_address) {
+		this.mail_address = mail_address;
+	}
 
 	/**
 	 * 顧客名取得メソッド
-	 * @return userName
+	 * @return user_Name
 	 */
-	public String getUserName() {
-		return userName;
+	public String getUser_Name() {
+		return user_Name;
 	}
 
 	/**
 	 * 顧客名格納メソッド
-	 * @param userName 名前
+	 * @param user_Name 名前
 	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUser_Name(String user_Name) {
+		this.user_Name = user_Name;
 	}
 
 	/**
 	 * ユーザーID取得メソッド
-	 * @return userId
+	 * @return unique_Id
 	 */
-	public int getUserId() {
-		return userId;
+	public String getUnique_Id() {
+		return unique_Id;
 	}
 
 	/**
 	 * ユーザーID格納メソッド
-	 * @param userId ユーザーID
+	 * @param unique_Id ユーザーID
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUnique_Id(String unique_Id) {
+		this.unique_Id = unique_Id;
 	}
 }

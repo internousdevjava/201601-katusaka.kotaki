@@ -45,35 +45,35 @@ public class LoginGoogleAction extends ActionSupport implements
      * @return SUCCESS
 	 */
 	public String execute(){
-		String rtn = ERROR;
 
 		GoogleOauth googleOauth = new GoogleOauth();
 		Map<String, String> userMap = googleOauth.getAccessToken(request);
 		if (userMap == null) {
-			return rtn;
+			return ERROR;
 		}
-		String uniqueId = userMap.get("id");
-		String userName = userMap.get("name");
+		String unique_id = userMap.get("id");
+		String user_name = userMap.get("name");
+		String mail_address = userMap.get("email");
 		LoginOauthDAO dao = new LoginOauthDAO();
-		if (dao.select(uniqueId, NETWORK_NAME)) {
+		if (dao.select(unique_id, NETWORK_NAME)) {
 			LoginOauthDTO dto = dao.getLoginOauthDTO();
-			session.put("loginId", dto.getUserId());
-			session.put("userName", dto.getUserName());
-			rtn = SUCCESS;
-			return rtn;
+			session.put("unique_id", dto.getUnique_Id());
+			session.put("user_naame", dto.getUser_Name());
+			session.put("mail_address", dto.getMail_address());
+			return SUCCESS;
 		}
 
-		boolean result = dao.insert(uniqueId, userName, NETWORK_NAME);
+		boolean result = dao.insert(user_name, mail_address, unique_id, NETWORK_NAME);
 		if (!result) {
-			return rtn;
+			return ERROR;
 		}
 
-		dao.select(uniqueId, NETWORK_NAME);
+		dao.select(unique_id, NETWORK_NAME);
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
-		session.put("loginId", dto.getUserId());
-		session.put("userName", dto.getUserName());
-		rtn = SUCCESS;
-		return rtn;
+		session.put("unique_id", dto.getUnique_Id());
+		session.put("user_name", dto.getUser_Name());
+		session.put("mail_address", dto.getMail_address());
+		return SUCCESS;
 	}
 
 	 /**
