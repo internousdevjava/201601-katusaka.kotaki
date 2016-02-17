@@ -13,15 +13,14 @@ import com.internousdevwork.mackeypark.util.GoogleOauth;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * Googleでログインする為のクラス
- * @author 堅田 一成
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
-public class LoginGoogleAction extends ActionSupport implements
-    ServletRequestAware, SessionAware {
+public class LoginGoogleAction extends ActionSupport implements ServletRequestAware, SessionAware {
 
 	/**
-	 * 生成されたシリアルナンバー
+	 * シリアルID
 	 */
 	private static final long serialVersionUID = 4405462117636579678L;
 
@@ -77,7 +76,6 @@ public class LoginGoogleAction extends ActionSupport implements
 		session.put("user_id", dto.getUser_id());
 		return SUCCESS;
 	}
-
 	 /**
 	  *  セッションを格納するためのメソッド
 	  *  @param session セッション

@@ -1,11 +1,3 @@
-/*
- * タイトル：facebookでログインする為のクラス
- * 説明    ：facebookからTokenを取得
- *
- * 著作権  ：Copyright(c) 2016 InterNous, Inc.
- * 会社名  ：インターノウス株式会社
- *
- */
 package com.internousdevwork.mackeypark.action;
 
 import java.util.Map;
@@ -24,9 +16,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * facebookで認証を確認する為のクラス
- * @author K.abe
+ * @author KATUSAKA KOTAKI
  * @since 1.0
- * @version 1.1
+ * @version 1.0
  */
 public class LoginFacebookAction extends ActionSupport implements SessionAware, ServletResponseAware, ServletRequestAware{
 
@@ -79,12 +71,10 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware, 
 			session.put("user_id", dto.getUser_id());
 			return SUCCESS;
 		}
-
 		boolean result = dao.insert(user_name, mail_address, unique_id, NETWORK_NAME);
 		if (!result) {
 			return ERROR;
 		}
-
 		dao.select(unique_id, NETWORK_NAME);
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
 		session.put("unique_id", dto.getUnique_Id());

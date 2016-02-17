@@ -77,7 +77,7 @@ public class GoTwitterAction extends ActionSupport implements ServletResponseAwa
 
 	/**
 	 * レスポンス格納メソッド
-	 * @param response エラーメッセージ
+	 * @param response
 	 */
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response;

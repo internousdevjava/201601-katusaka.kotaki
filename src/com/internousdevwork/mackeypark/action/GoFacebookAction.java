@@ -46,14 +46,14 @@ public class GoFacebookAction  extends ActionSupport implements ServletResponseA
 
 	/**
 	 * リクエスト格納メソッド
-	 * @param request エラーメッセージ
+	 * @param request
 	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}
 	/**
 	 * レスポンス格納メソッド
-	 * @param response エラーメッセージ
+	 * @param response
 	 */
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response;
