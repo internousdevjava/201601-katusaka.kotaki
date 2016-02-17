@@ -14,7 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Googleでログインする為のクラス
- * @author 堅田 一成
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
@@ -39,8 +39,9 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	 * リクエスト
 	 */
 	private HttpServletRequest request;
+
 	/**
-	 * GoogleからリクエストTokenを取得メソッド
+	 * GoogleからリクエストTokenを取得できるかどうか確認するメソッド
 	 * @return SUCCESS ERROR
 	 */
 	public String execute() {
@@ -50,30 +51,34 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 		}
 		return SUCCESS;
 	}
+
 	/**
-	 * セッションを格納するためのメソッド
-     * @param session セッション
-	 */
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
-	/**
-	 * セッションを取得するためのメソッド
+	 * セッション取得メソッド
 	 * @return session
 	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
+
 	/**
-	 * レスポンス格納メソッド
-	 * @param response レスポンス
+	 * セッション格納メソッド
+	 * @param session
+	 */
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	/**
+	 * セッション格納メソッド
+	 * @param response
 	 */
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response;
 	}
+
 	/**
-	 * リクエストを格納するためのメソッド
-	 * @param request リクエスト
+	 * リクエスト格納メソッド
+	 * @param request
 	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;

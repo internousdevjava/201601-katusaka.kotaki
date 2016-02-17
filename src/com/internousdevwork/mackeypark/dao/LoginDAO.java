@@ -14,7 +14,7 @@ public class LoginDAO  extends ActionSupport{
 
 	LoginDTO dto = new LoginDTO();
 
-	public boolean searchDB (String mail_address, String password){
+	public boolean select(String mail_address, String password){
 
 		boolean result = false;
 		Connection con = DBConnector.getConnection("openconnect");	//DBに接続

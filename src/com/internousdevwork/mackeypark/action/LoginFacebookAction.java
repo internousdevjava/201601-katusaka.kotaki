@@ -67,16 +67,16 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware, 
 		if (userMap == null) {
 			return ERROR;
 		}
-
 		String unique_id = userMap.get("id");
 		String user_name = userMap.get("name");
 		String mail_address = userMap.get("email");
 		LoginOauthDAO dao = new LoginOauthDAO();
 		if (dao.select(unique_id, NETWORK_NAME)) {
 			LoginOauthDTO dto = dao.getLoginOauthDTO();
-			session.put("user_Id", dto.getUnique_Id());
-			session.put("user_Name", dto.getUser_Name());
+			session.put("unique_id", dto.getUnique_Id());
+			session.put("user_name", dto.getUser_Name());
 			session.put("mail_address", dto.getMail_address());
+			session.put("user_id", dto.getUser_id());
 			return SUCCESS;
 		}
 
@@ -88,8 +88,9 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware, 
 		dao.select(unique_id, NETWORK_NAME);
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
 		session.put("unique_id", dto.getUnique_Id());
-		session.put("user_Name", dto.getUser_Name());
+		session.put("user_name", dto.getUser_Name());
 		session.put("mail_address", dto.getMail_address());
+		session.put("user_id", dto.getUser_id());
 		return SUCCESS;
 	}
 

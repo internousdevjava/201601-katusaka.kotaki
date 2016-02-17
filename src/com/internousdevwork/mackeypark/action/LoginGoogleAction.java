@@ -60,6 +60,7 @@ public class LoginGoogleAction extends ActionSupport implements
 			session.put("unique_id", dto.getUnique_Id());
 			session.put("user_naame", dto.getUser_Name());
 			session.put("mail_address", dto.getMail_address());
+			session.put("user_id", dto.getUser_id());
 			return SUCCESS;
 		}
 
@@ -73,6 +74,7 @@ public class LoginGoogleAction extends ActionSupport implements
 		session.put("unique_id", dto.getUnique_Id());
 		session.put("user_name", dto.getUser_Name());
 		session.put("mail_address", dto.getMail_address());
+		session.put("user_id", dto.getUser_id());
 		return SUCCESS;
 	}
 

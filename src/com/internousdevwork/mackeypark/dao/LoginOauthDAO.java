@@ -42,6 +42,7 @@ public class LoginOauthDAO{
 				dto.setUnique_Id(rs.getString(1));
 				dto.setUser_Name(rs.getString(2));
 				dto.setMail_address(rs.getString("mail_address"));
+				dto.setUser_id(rs.getInt("user_id"));
 				return true;
 			}
 		}catch(SQLException e){

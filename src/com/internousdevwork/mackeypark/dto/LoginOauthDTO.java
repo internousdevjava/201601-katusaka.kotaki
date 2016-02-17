@@ -20,6 +20,22 @@ public class LoginOauthDTO{
 
 	private String mail_address;
 
+	private int user_id;
+
+	/**
+	 * @return user_id
+	 */
+	public int getUser_id() {
+		return user_id;
+	}
+
+	/**
+	 * @param user_id セットする user_id
+	 */
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
 	public String getMail_address() {
 		return mail_address;
 	}

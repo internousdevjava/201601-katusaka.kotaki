@@ -11,14 +11,14 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * FACEBOOKでログインする為のクラス
- * @author 堅田 一成
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
 public class GoFacebookAction  extends ActionSupport implements ServletResponseAware,ServletRequestAware  {
 
 	/**
-	 * 生成されたシリアルナンバー
+	 * シリアルID
 	 */
 	private static final long serialVersionUID = 8410788671527276072L;
 
@@ -31,28 +31,29 @@ public class GoFacebookAction  extends ActionSupport implements ServletResponseA
 	 * レスポンス
 	 */
 	private HttpServletResponse response;
+
 	/**
-	 * FaceBookからTokenを取得メソッド
+	 * FaceBookからTokenを取得できるかどうか確認するメソッド
 	 * @return String
 	 */
-	   public String execute() {
-	    	FacebookOauth oauth = new FacebookOauth();
-			if(!oauth.getRequestToken(request, response)){
-				return ERROR;
-			}
-			return SUCCESS;
+	public String execute() {
+		FacebookOauth oauth = new FacebookOauth();
+		if(!oauth.getRequestToken(request, response)){
+			return ERROR;
 		}
+		return SUCCESS;
+	}
 
 	/**
 	 * リクエスト格納メソッド
-	 * @param request リクエスト
+	 * @param request エラーメッセージ
 	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}
 	/**
 	 * レスポンス格納メソッド
-	 * @param response レスポンス
+	 * @param response エラーメッセージ
 	 */
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response;
