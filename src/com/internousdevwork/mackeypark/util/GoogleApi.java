@@ -18,12 +18,12 @@ import org.scribe.utils.OAuthEncoder;
 import org.scribe.utils.Preconditions;
 
  /**
- * Google OAuth2.0
- * Released under the same license as scribe (MIT License)
- * @author 堅田 一成
+ * Google OAuth2.0でログインの際に使用するクラス
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
+
 public class GoogleApi extends DefaultApi20 {
 
     private static final String AUTHORIZE_URL = "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=%s&redirect_uri=%s";

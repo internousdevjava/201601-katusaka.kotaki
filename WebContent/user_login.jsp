@@ -17,10 +17,10 @@
 
 	<h3>下記に情報を入力してください。</h3><br>
 
-<!-- ログインエラーメッセージ -->
+<%-- ログインエラー時に表示されるメッセージ --%>
 <div class="errorMsg"><s:property value="ErrorMsg"/></div>
 
-<!-- ログイン -->
+<%--  ログイン --%>
 	<s:form action="LoginAction" namespace="/">
 		<table>
 		<tr>
@@ -37,15 +37,15 @@
 <br>
 		<ul>
 		<li>SNS認証はこちら</li>
-		<!-- フェイスブック  -->
+		<%-- フェイスブック  --%>
 		<li><s:url var="facebook" action="login-facebook"/>
        	<s:a href="%{facebook}" ><img src="img/Facebook.jpg" style="zoom: 40%;"></s:a></li>
 
-        <!-- ツイッター -->
+        <%-- ツイッター --%>
         <li><s:url var="twitter" action="login-twitter" />
         <s:a href="%{twitter}"><img src="img/twitter.jpg" style="zoom: 20%;"></s:a></li>
 
-		<!-- グーグル  -->
+		 <%--  グーグル --%>
 		<li><s:url var="google" action="login-google" />
         <s:a href="%{google}"><img src="img/GooglePlusIcon.jpg" style="zoom: 32%;"></s:a></li>
         </ul>
@@ -53,7 +53,7 @@
 
 	<p>登録していない方はこちらから新規登録してください</p>
 
- <!-- 新規登録 -->
+ <%-- 新規登録 --%>
 <s:form action="GoCreateUserAction" namespace="/">
 <s:submit cssClass="registBtn" value="新規登録"/>
 </s:form>

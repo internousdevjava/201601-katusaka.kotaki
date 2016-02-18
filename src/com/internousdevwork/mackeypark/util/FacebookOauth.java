@@ -22,14 +22,14 @@ import facebook4j.FacebookFactory;
 import facebook4j.auth.AccessToken;
 /**
  * FACEBOOK OAuthでログインする為のクラス
- * @author 堅田 一成
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
 public class FacebookOauth extends ActionSupport {
 
 	/**
-	 * 生成されたシリアルナンバー
+	 * シリアルID
 	 */
 	private static final long serialVersionUID = -564268116563098912L;
 
@@ -52,6 +52,7 @@ public class FacebookOauth extends ActionSupport {
 	 * ユーザー情報を取得するメソッド
 	 * @param request リクエスト
 	 * @param response レスポンス
+	 * @return boolean リクエストトークンを取得できるか
 	 */
 	public boolean getRequestToken(HttpServletRequest request, HttpServletResponse response) {
 

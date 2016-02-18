@@ -1,13 +1,3 @@
-/*
- * タイトル：googleとoauth認証でのやり取りを行う処理
- * 説明    ：ユーザーを情報を取得する。
- *
- * 著作権  ：Copyright(c) 2015 InterNous, Inc.
- * 会社名  ：インターノウス株式会社
- *
- * 変更履歴：
- *
- */
 package com.internousdevwork.mackeypark.util;
 
 import java.util.LinkedHashMap;
@@ -30,8 +20,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * googleとoauth認証でのやり取りを行うクラス
- * @author K.Abe
+ * GoogleでのOAuthでログインする為のクラス
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
@@ -68,7 +58,7 @@ public class GoogleOauth extends ActionSupport {
 		try{
 			String apiKey = "852485846089-ac6f4adrsj9qceiqhh0remg8kqtvphk2.apps.googleusercontent.com";
 			String apiSecret = "M3wqz08tec-AiHuGJlzol_97";
-			String callbackUrl = "http://localhost:8080/mackypark/main.jsp";
+			String callbackUrl = "http://localhost:8080/_mackeypark/login-google-action";
 
 			OAuthService service = new ServiceBuilder()
 			.provider(GoogleApi.class)

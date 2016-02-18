@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Twitterでログインする為のクラス
- * @author 堅田 一成
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
@@ -24,7 +24,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginTwitterAction extends ActionSupport implements ServletResponseAware,ServletRequestAware,SessionAware{
 
 	/**
-	 * シリアルバージョンIDの生成
+	 * シリアルID
 	 */
 	private static final long serialVersionUID = 3787626263699340105L;
 
@@ -50,7 +50,7 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 
 	/**
 	 * Twitter認証の実行メソッド
-	 * @return String
+	 * @return String 成功ならSUCCESS 失敗ならERRORを返す
 	 */
 	public String execute() {
 

@@ -1,12 +1,17 @@
 package com.internousdevwork.mackeypark.dto;
 
  /**
- * OAUTHで顧客情報を格納する為のDTOクラス
- * @author 堅田 一成
+ * OAuthでユーザー情報を格納する為のDTOクラス
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
 public class LoginOauthDTO{
+
+	/**
+	 * ユーザーID
+	 */
+	private int user_id;
 
 	/**
 	 * 名前
@@ -14,15 +19,18 @@ public class LoginOauthDTO{
 	private String user_Name;
 
 	/**
-	 * ユーザーID
+	 * メールアドレス
+	 */
+	private String mail_address;
+
+	/**
+	 * ユニークID
 	 */
 	private String unique_Id;
 
-	private String mail_address;
-
-	private int user_id;
 
 	/**
+	 * ユーザーID取得メソッド
 	 * @return user_id
 	 */
 	public int getUser_id() {
@@ -30,22 +38,15 @@ public class LoginOauthDTO{
 	}
 
 	/**
-	 * @param user_id セットする user_id
+	 * ユーザーID格納メソッド
+	 * @param user_id
 	 */
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 
-	public String getMail_address() {
-		return mail_address;
-	}
-
-	public void setMail_address(String mail_address) {
-		this.mail_address = mail_address;
-	}
-
 	/**
-	 * 顧客名取得メソッド
+	 * ユーザー名取得メソッド
 	 * @return user_Name
 	 */
 	public String getUser_Name() {
@@ -53,7 +54,7 @@ public class LoginOauthDTO{
 	}
 
 	/**
-	 * 顧客名格納メソッド
+	 * ユーザー名格納メソッド
 	 * @param user_Name 名前
 	 */
 	public void setUser_Name(String user_Name) {
@@ -61,7 +62,23 @@ public class LoginOauthDTO{
 	}
 
 	/**
-	 * ユーザーID取得メソッド
+	 * メールアドレス取得メソッド
+	 * @return mail_address
+	 */
+	public String getMail_address() {
+		return mail_address;
+	}
+
+	/**
+	 * メールアドレス格納メソッド
+	 * @param mail_address
+	 */
+	public void setMail_address(String mail_address) {
+		this.mail_address = mail_address;
+	}
+
+	/**
+	 * ユニークID取得メソッド
 	 * @return unique_Id
 	 */
 	public String getUnique_Id() {
@@ -69,8 +86,8 @@ public class LoginOauthDTO{
 	}
 
 	/**
-	 * ユーザーID格納メソッド
-	 * @param unique_Id ユーザーID
+	 * ユニークID格納メソッド
+	 * @param unique_Id
 	 */
 	public void setUnique_Id(String unique_Id) {
 		this.unique_Id = unique_Id;

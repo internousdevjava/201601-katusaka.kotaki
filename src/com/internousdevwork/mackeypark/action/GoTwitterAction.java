@@ -40,8 +40,8 @@ public class GoTwitterAction extends ActionSupport implements ServletResponseAwa
 	private HttpServletRequest request;
 
 	/**
-	 * TwitterリクエストToken取得できるか確認するメソッド
-	 * @return  SUCCESS ERROR
+	 * TwitterでリクエストToken取得できるか確認するメソッド
+	 * @return String
 	 */
 	public String execute() {
 		TwitterOauth twitterOauth = new TwitterOauth();

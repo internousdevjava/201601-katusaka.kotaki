@@ -33,7 +33,7 @@ public class GoFacebookAction  extends ActionSupport implements ServletResponseA
 	private HttpServletResponse response;
 
 	/**
-	 * FaceBookからTokenを取得できるかどうか確認するメソッド
+	 * FaceBookでリクエストToken取得できるか確認するメソッド
 	 * @return String
 	 */
 	public String execute() {

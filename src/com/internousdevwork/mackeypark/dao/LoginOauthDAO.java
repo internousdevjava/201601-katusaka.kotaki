@@ -12,7 +12,7 @@ import com.internousdevwork.mackeypark.util.DBConnector;
 
 /**
  * Oauthでログインに必要な情報を取得する為のクラス
- * @author 堅田 一成
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
@@ -24,9 +24,9 @@ public class LoginOauthDAO{
 	private LoginOauthDTO dto = new LoginOauthDTO();
 	/**
 	 * 取得したユニークIDを照合するためのメソッド
-	 * @param  OAuthのサービス先のユニークID
-	 * @param oauth_Name OAuthのサービス名
-	 * @return result
+	 * @param  unique_id
+	 * @param oauth_Name
+	 * @return boolean unique_idとoauth_nameを照合できるか
 	 */
 	public boolean select(String unique_id, String oauth_name){
 
@@ -58,16 +58,14 @@ public class LoginOauthDAO{
 	}
 
 	/**
-	 * ユニークIDが無かったら作成
+	 * ユーザー情報をデータベースにインサートできるか確認するメソッド
 	 * @param unique_Id OAuthのサービス先のユニークID
 	 * @param user_Name OAuthのサービス先のユーザー名
 	 * @param oauth_Name OAuthのサービス名
-	 * @param oauth_Name OAuthのmail_adress
-	 * @return result 結果
+	 * @param mail_address OAuthのサービス先で登録しているメールアドレス
+	 * @return boolean
 	 */
-
 		public boolean insert(String user_name, String mail_adress, String unique_id, String oauth_name ) {
-
 			LocalDateTime ldt = LocalDateTime.now();
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String now = ldt.format(formatter);
@@ -79,11 +77,9 @@ public class LoginOauthDAO{
 				ps.setString(2, mail_adress);
 				ps.setString(3, unique_id);
 				ps.setString(4, oauth_name);
-
 				if(isFirst()){
 				ps.setString(5, now);
 				}
-
 				int insertCount = ps.executeUpdate();
 				if (insertCount > 0) {
 					return true;
@@ -99,49 +95,11 @@ public class LoginOauthDAO{
 			}
 			return false;
 		}
-	/**
-	 * ユニークIDが無かったら作成
-	 * @param unique_Id OAuthのサービス先のユニークID
-	 * @param user_Name OAuthのサービス先のユーザー名
-	 * @param oauth_Name OAuthのサービス名
-	 * @return result 結果
-	 */
 
-//	public boolean insert(String unique_Id, String user_Name, String oauth_Name) {
-//		Connection con = null;
-//		boolean result = false;
-//		Calendar cal = Calendar.getInstance();
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-//		String now = sdf.format(cal.getTime());
-//		con = DBConnector.getConnection("openconnect");
-//		String sql = "INSERT INTO user(user_name, , oauth_name, user_registration_date) values (?,?,?,?)";
-//		try {
-//			PreparedStatement ps = con.prepareStatement(sql);
-//
-//			ps.setString(1, user_Name);
-//			ps.setString(2, unique_Id);
-//			ps.setString(3, oauth_Name);
-//
-//			if(isFirst()){
-//			ps.setString(4, now);
-//			}
-//
-//			int insertCount = ps.executeUpdate();
-//			if (insertCount > 0) {
-//				result = true;
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				con.close();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		return result;
-//	}
-
+		/**
+		 * 初登録か確認するメソッド
+		 * @return boolean nullならtrueを、そうでないならfalseを返します。
+		 */
 	public boolean isFirst(){
 
 		Connection con = DBConnector.getConnection("openconnect");
@@ -180,7 +138,7 @@ public class LoginOauthDAO{
 
 	/**
 	 * DTO格納メソッド
-	 * @param dto ログインユーザDTO
+	 * @param dto
 	 */
 	public void setLoginOauthDTO(LoginOauthDTO dto) {
 		this.dto = dto;

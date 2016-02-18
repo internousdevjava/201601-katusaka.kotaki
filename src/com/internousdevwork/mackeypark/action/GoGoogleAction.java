@@ -41,8 +41,8 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	private HttpServletRequest request;
 
 	/**
-	 * GoogleからリクエストTokenを取得できるかどうか確認するメソッド
-	 * @return SUCCESS ERROR
+	 * GoogleでリクエストToken取得できるか確認するメソッド
+	 * @return String
 	 */
 	public String execute() {
 		GoogleOauth googleOauth = new GoogleOauth();

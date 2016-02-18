@@ -41,7 +41,7 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 
 	/**
 	 * Google認証の実行メソッド
-     * @return SUCCESS
+     * @return String 成功ならSUCCESS 失敗ならERRORを返す
 	 */
 	public String execute(){
 

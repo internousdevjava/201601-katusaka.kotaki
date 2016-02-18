@@ -14,16 +14,11 @@ import twitter4j.auth.RequestToken;
 
  /**
  *TwitterでのOAuthでログインする為のクラス
- * @author 堅田 一成
+ * @author KATUSAKA KOTAKI
  * @since 1.0
  * @version 1.0
  */
 public class TwitterOauth {
-
-	/**
-	* 結果
-	*/
-	private boolean result=false;
 
 	/**
 	* コンシューマーキー
@@ -54,7 +49,7 @@ public class TwitterOauth {
             response.sendRedirect(strUrl);
         }catch (TwitterException | IOException e){
         }
-        return result;
+        return false;
 	}
 
 

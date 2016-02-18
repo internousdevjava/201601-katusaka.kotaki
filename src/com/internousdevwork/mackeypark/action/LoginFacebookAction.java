@@ -49,7 +49,7 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware, 
 
 	/**
 	 * FACEBOOK認証の実行メソッド
-	 * @return FACEBOOK認証成功時SUCCESS FACEBOOK認証失敗時ERROR
+	 * @return String 成功ならSUCCESS 失敗ならERRORを返す
 	 */
 	public String execute() {
 
