@@ -23,7 +23,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginFacebookAction extends ActionSupport implements SessionAware, ServletResponseAware, ServletRequestAware{
 
 	/**
-	 * シリアルID
+	 * シリアルナンバー
 	 */
 	private static final long serialVersionUID = 8951888096203473890L;
 
@@ -49,7 +49,7 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware, 
 
 	/**
 	 * FACEBOOK認証の実行メソッド
-	 * @return String 成功ならSUCCESS 失敗ならERRORを返す
+	 * @return String 成功ならSUCCESS 失敗ならERRORを返します。
 	 */
 	public String execute() {
 

@@ -26,18 +26,32 @@ import org.scribe.utils.Preconditions;
 
 public class GoogleApi extends DefaultApi20 {
 
+	/**
+	 * オーサライズURL
+	 */
     private static final String AUTHORIZE_URL = "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=%s&redirect_uri=%s";
+
+    /**
+     * スコープ
+     */
     private static final String SCOPED_AUTHORIZE_URL = AUTHORIZE_URL + "&scope=%s";
 
+    /**
+     * アクセストークンの有効期限を返すメソッド
+     * @return String
+     */
     @Override
     public String getAccessTokenEndpoint() {
         return "https://accounts.google.com/o/oauth2/token";
     }
 
+    /**
+     * HTTPレスポンスの内容からアクセストークンを抽出するメソッド
+     * @return AccessTokenExtractor
+     */
     @Override
     public AccessTokenExtractor getAccessTokenExtractor() {
         return new AccessTokenExtractor() {
-
             @Override
             public Token extract(String response) {
                 Preconditions.checkEmptyString(response, "Response body is incorrect. Can't extract a token from an empty string");
@@ -56,6 +70,10 @@ public class GoogleApi extends DefaultApi20 {
         };
     }
 
+    /**
+     * AuthorizationUrlを取得する為のメソッド
+     * @return String
+     */
     @Override
     public String getAuthorizationUrl(OAuthConfig config) {
         if (config.hasScope()) {
@@ -68,16 +86,30 @@ public class GoogleApi extends DefaultApi20 {
         }
     }
 
+    /**
+     * アクセストークンのリクエスト形式を返すメソッド
+     * @return Verb
+     */
     @Override
     public Verb getAccessTokenVerb() {
         return Verb.POST;
     }
 
+    /**
+     * グーグルのサービスバージョンを返すメソッド
+     * @return OAuthService
+     */
     @Override
     public OAuthService createService(OAuthConfig config) {
         return new GoogleOAuth2Service(this, config);
     }
 
+    /**
+     * GoogleOAuthを使用する際の形式を定めるクラス
+     * @author KATUSAKA KOTAKI
+     * @since 1.0
+     * @version 1.0
+     */
     private class GoogleOAuth2Service extends OAuth20ServiceImpl {
 
         private static final String GRANT_TYPE_AUTHORIZATION_CODE = "authorization_code";
@@ -91,6 +123,10 @@ public class GoogleApi extends DefaultApi20 {
             this.config = config;
         }
 
+       /**
+        * リクエスト形式によってアクセストークンの取得方法を変えるメソッド
+        * @return Token
+        */
         @Override
         public Token getAccessToken(Token requestToken, Verifier verifier) {
             OAuthRequest request = new OAuthRequest(api.getAccessTokenVerb(), api.getAccessTokenEndpoint());
@@ -114,5 +150,4 @@ public class GoogleApi extends DefaultApi20 {
             return api.getAccessTokenExtractor().extract(response.getBody());
         }
     }
-
 }

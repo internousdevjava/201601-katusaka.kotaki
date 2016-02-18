@@ -20,7 +20,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoTwitterAction extends ActionSupport implements ServletResponseAware, ServletRequestAware {
 
 	/**
-	 * シリアルID
+	 * シリアルナンバー
 	 */
 	private static final long serialVersionUID = 1524555947613444860L;
 

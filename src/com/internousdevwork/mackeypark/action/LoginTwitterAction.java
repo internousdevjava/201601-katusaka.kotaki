@@ -24,7 +24,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginTwitterAction extends ActionSupport implements ServletResponseAware,ServletRequestAware,SessionAware{
 
 	/**
-	 * シリアルID
+	 * シリアルナンバー
 	 */
 	private static final long serialVersionUID = 3787626263699340105L;
 
@@ -50,7 +50,7 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 
 	/**
 	 * Twitter認証の実行メソッド
-	 * @return String 成功ならSUCCESS 失敗ならERRORを返す
+	 * @return String 成功ならSUCCESS 失敗ならERRORを返します。
 	 */
 	public String execute() {
 

@@ -1,0 +1,129 @@
+@CHARSET "UTF-8";
+
+.ribbon{
+	float:left;
+}
+
+/*両端の切れ込み*/
+.ribbon:after, .ribbon:before {
+    margin-top:8px;
+    content: "";
+    float:left;
+    border:20px solid #EC8E9E;
+}
+
+.ribbon:after {
+    border-right-color:transparent;
+}
+
+.ribbon:before {
+    border-left-color:transparent;
+}
+
+/*リンク*/
+.ribbon a:link, .ribbon a:visited {
+    color:#666;
+    text-decoration:none;
+    float:left;
+    height:48px;
+    overflow:hidden;
+    font-weight:bold;
+}
+
+.ribbon span {
+    background:#EC8E9E;
+    display:inline-block;
+    line-height:40px;
+    padding:0 36px;
+    margin-top:8px;
+    position:relative;
+    font-size:45px
+
+    -webkit-transition: background-color 0.2s, margin-top 0.2s;  /* Saf3.2+, Chrome */
+    -moz-transition: background-color 0.2s, margin-top 0.2s;  /* FF4+ */
+    -ms-transition: background-color 0.2s, margin-top 0.2s;  /* IE10 */
+    -o-transition: background-color 0.2s, margin-top 0.2s;  /* Opera 10.5+ */
+    transition: background-color 0.2s, margin-top 0.2s;
+}
+
+ /*アニメーション部分*/
+.ribbon a:hover span {
+    background:#fccfd6;
+    margin-top:0;
+}
+
+.ribbon span:before {
+    content: "";
+    position:absolute;
+    top:40px;
+    left:0;
+    border-right:8px solid #9B8651;
+    border-bottom:8px solid #EC8E9E;
+}
+
+.ribbon span:after {
+    content: "";
+    position:absolute;
+    top:40px;
+    right:0;
+    border-left:8px solid #9B8651;
+    border-bottom:8px solid #EC8E9E;
+}
+
+
+
+/*フッター固定のために色々変える*/
+html, body {
+  height: 100%;
+}
+
+#header {
+    position: fixed;            /* ヘッダーの固定 */
+    top: 0px;                   /* 位置(上0px) */
+    left: 0px;                  /* 位置(右0px) */
+    width: 100%;                /* 横幅100%　*/
+    height: 60px;              /* 縦幅140px */
+    background-color:rgba(60,200,255,0.3);
+}
+/* メイン　崩れないように*/
+#main { margin-top:60px;}
+
+
+/*フッター*/
+#footer {
+    position: fixed;            /* フッターの固定 */
+    bottom: 0px;                /* 位置(下0px) */
+    left: 0px;                  /* 位置(左0px) */
+    width: 100%;                /* 横幅100%　*/
+    height: 50px;              /* 縦幅140px */
+    background-color:rgba(60,200,255,0.3);
+}
+
+#footer_bk{
+	clear:left;
+	width: 100%;                /* 横幅100%　*/
+    height: 50px;              /* 縦幅140px */
+}
+
+/*ヘッダーの画像*/
+.header-left{
+	float:left;
+	 padding: 0px 60px;
+
+}
+
+
+.footer-right li{
+	float:left;
+	list-style:none;
+	padding:5px 30px;
+	border-left:1px solid #ffffff;
+	font-size:15px;
+
+}
+
+/*世界地図（イメージしやすいようにいれてみました）*/
+img.sample {
+width: 60px;
+height: 60px;
+}

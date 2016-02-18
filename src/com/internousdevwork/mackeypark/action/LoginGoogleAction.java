@@ -20,7 +20,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginGoogleAction extends ActionSupport implements ServletRequestAware, SessionAware {
 
 	/**
-	 * シリアルID
+	 * シリアルナンバー
 	 */
 	private static final long serialVersionUID = 4405462117636579678L;
 
@@ -41,7 +41,7 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 
 	/**
 	 * Google認証の実行メソッド
-     * @return String 成功ならSUCCESS 失敗ならERRORを返す
+     * @return String 成功ならSUCCESS 失敗ならERRORを返します。
 	 */
 	public String execute(){
 

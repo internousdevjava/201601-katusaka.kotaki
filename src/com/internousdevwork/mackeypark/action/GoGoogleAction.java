@@ -21,7 +21,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoGoogleAction extends ActionSupport implements ServletResponseAware,ServletRequestAware,SessionAware {
 
 	/**
-	 * シリアルID
+	 * シリアルナンバー
 	 */
 	private static final long serialVersionUID = 1524555947613444860L;
 

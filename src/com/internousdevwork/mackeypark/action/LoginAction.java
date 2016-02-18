@@ -9,7 +9,7 @@ import com.internousdevwork.mackeypark.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * CreditCard ログイン処理を行うクラス
+ * ログイン処理を行うクラス
  *
  * @author KATUSAKA KOTAKI
  * @version 1.0
@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport implements SessionAware{
 
 	/**
-	 * シリアルID
+	 * シリアルナンバー
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -44,7 +44,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	/**
 	 *ログイン処理を行うメソッド
-	 *結果はログインできればSUCCESS、できなければERRORを返します。
+	 *@return String 結果はログインできればSUCCESS、できなければERRORを返します。
 	 */
 	public String execute(){
 		LoginDAO dao = new LoginDAO();

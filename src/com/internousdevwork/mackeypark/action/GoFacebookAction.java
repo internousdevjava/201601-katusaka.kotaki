@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoFacebookAction  extends ActionSupport implements ServletResponseAware,ServletRequestAware  {
 
 	/**
-	 * シリアルID
+	 * シリアルナンバー
 	 */
 	private static final long serialVersionUID = 8410788671527276072L;
 
