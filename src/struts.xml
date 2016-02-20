@@ -3,91 +3,91 @@
 <struts>
 <constant name="struts.ui.theme" value="xhtml" />
 	<constant name="struts.custom.i18n.resources"
-	value="com.internousdevwork.mackeypark.property.Login"/>
+	value="com.internous.property.Login"/>
 
     <constant name="struts.ui.theme" value="simple" />
 <package name="mackeypark" namespace="/" extends="struts-default">
 
-	<!--新規登録に遷移-->
+	<!--新規登録に遷移
 	<action name="GoCreateUserAction"
 	class="com.internousdevwork.mackeypark.action.GoCreateUserAction" method="execute">
 		<result name= "success">create_user.jsp</result>
-	</action>
+	</action>-->
 
-    <!-- 絵柄設定へ遷移 -->
+    <!-- 絵柄設定へ遷移
     <action name="GoEgaraAction" class="com.internousdevwork.mackeypark.action.GoEgaraAction" method="execute">
 	<result name="success">choise_design.jsp</result>
-	</action>
+	</action>-->
 
-	<!-- 絵柄設定に戻る -->
+	<!-- 絵柄設定に戻る
 	<action name="ReturnEgaraAction" class="com.internousdevwork.mackeypark.action.ReturnEgaraAction" method="execute">
 	<result name="success">choise.jsp</result>
 	<result name="error">choise_design.jsp</result>
-	</action>
+	</action>-->
 
-	<!-- 購入確認へ -->
+	<!-- 購入確認へ
 	<action name="GoPurchaseAction" class="com.internousdevwork.mackeypark.action.GoPurchaseAction" method="execute">
 	<result name="success">cart_check.jsp</result>
 	<result name="error">choise_design.jsp</result>
-	</action>
+	</action> -->
 
-	<!--条件選択に戻る -->
+	<!--条件選択に戻る
 	<action name="ReturnSelectAction" class="com.internousdevwork.mackeypark.action.ReturnSelectAction" method="execute">
 	<result name="success">selection_control.jsp</result>
-	</action>
+	</action>-->
 
 	<!-- ログイン認証-->
 	<action name="LoginAction"
-		class="com.internousdevwork.mackeypark.action.LoginAction" method="execute">
+		class="com.internous.action.LoginAction" method="execute">
 		<result name="success">main.jsp</result>
-		<result name="error">user_login.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
-	<!-- Facebook認証を行うアクション -->
+	<!-- Facebook認証を行うアクション
 	<action name="login-facebook"
 		class="com.internousdevwork.mackeypark.action.GoFacebookAction"
 		method="execute">
 		<result name="success">user_login.jsp</result>
 		<result name="error">user_login.jsp</result>
-	</action>
+	</action>-->
 
-	<!-- Facebook認証のコールバックアクション-->
+	<!-- Facebook認証のコールバックアクション
 	<action name="login-facebook-action"
 		class="com.internousdevwork.mackeypark.action.LoginFacebookAction"
 		method="execute">
 		<result name="success">main.jsp</result>
 		<result name="error">user_login.jsp</result>
-	</action>
+	</action>-->
 
-	<!-- Google認証を行うアクション-->
+	<!-- Google認証を行うアクション
 	<action name="login-google"
 		class="com.internousdevwork.mackeypark.action.GoGoogleAction" method="execute">
 		<result name="success">user_login.jsp</result>
 		<result name="error">user_login.jsp</result>
-	</action>
+	</action>-->
 
-	<!-- Google認証のコールバックアクション-->
+	<!-- Google認証のコールバックアクション
 	<action name="login-google-action"
 		class="com.internousdevwork.mackeypark.action.LoginGoogleAction"
 		method="execute">
 		<result name="success">main.jsp</result>
 		<result name="error">user_login.jsp</result>
-	</action>
+	</action>-->
 
-	<!-- Twitter認証を行うアクション-->
+	<!-- Twitter認証を行うアクション
 	<action name="login-twitter"
 		class="com.internousdevwork.mackeypark.action.GoTwitterAction" method="execute">
 		<result name="success">user_login.jsp</result>
 		<result name="error">user_login.jsp</result>
-	</action>
+	</action>-->
 
-	<!-- Twitter認証のコールバックアクション -->
+	<!-- Twitter認証のコールバックアクション
 	<action name="login-twitter-action"
 		class="com.internousdevwork.mackeypark.action.LoginTwitterAction"
 		method="execute">
 		<result name="success">main.jsp</result>
 		<result name="error">user_login.jsp</result>
-	</action>
+	</action> -->
 
 	</package>
 </struts>
