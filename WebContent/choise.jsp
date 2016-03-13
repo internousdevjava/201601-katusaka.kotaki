@@ -17,7 +17,7 @@
 			<a>選択一覧</a>
 		</div>
 
-		<c:forEach var="i" begin="1" end="3" step="1" >
+		<c:forEach var="i" begin="1" end="10" step="1" >
 		<div class="itirann"align="center">
 			<table border="1">
 				<tr>
@@ -50,7 +50,7 @@
 				<tr>
 					<td rowspan="2">
 				<c:choose>
-				<c:when test="${list.get(i)}"><img src="img/mackey.jpg"><td class="egara">絵柄名&nbsp;:&nbsp;マッキー</c:when>
+				<c:when test="${character.equals(mackey)}"><img src="img/mackey.jpg"><td class="egara">絵柄名&nbsp;:&nbsp;マッキー</c:when>
 				<c:when test="${list.get(i)}"><img src="img/mannie.jpg"><td class="egara">絵柄名&nbsp;:&nbsp;マニー</c:when>
 				<c:when test="${list.get(i)}"><img src="img/dolnad.jpg"><td class="egara">絵柄名&nbsp;:&nbsp;ドルナド</c:when>
 				<c:when test="${list.get(i)}"><img src="img/doisy.jpg"><td class="egara">絵柄名&nbsp;:&nbsp;ドイジー</c:when>

@@ -63,7 +63,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		return SUCCESS;
 	}
 
-
 	/**
 	 * メールアドレス取得メソッド
 	 * @return mail_adress

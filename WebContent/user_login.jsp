@@ -62,7 +62,7 @@
 	<h3>下記に情報を入力してください。</h3><br>
 
 <%-- ログインエラー時に表示されるメッセージ --%>
-<div class="errorMsg"><s:property value="ErrorMsg"/></div>
+<div class="errorMsg"><s:property value="errorMsg"/></div>
 
 <%--  ログイン --%>
 	<s:form action="LoginAction" namespace="/">

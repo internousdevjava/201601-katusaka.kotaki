@@ -9,6 +9,7 @@ package com.internousdevwork.mackeypark.dto;
  */
 
 public class LoginDTO {
+
 	/**
 	 * ユーザーID
 	 */

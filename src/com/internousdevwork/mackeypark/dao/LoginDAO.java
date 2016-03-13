@@ -18,11 +18,8 @@ import com.internousdevwork.mackeypark.util.DBConnector;
  * データベースとやり取りしてユーザーが登録されているか確認するクラス
  */
 public class LoginDAO {
-	/**
-	 * データベースから取得した情報を格納するDTO
-	 */
-	LoginDTO dto = new LoginDTO();
 
+	LoginDTO dto = new LoginDTO();
 	/**
 	 * メールアドレスとパスワードからユーザーの登録を確認するメソッド
 	 * メールアドレスとパスワードからユーザーを特定できた場合、
@@ -61,11 +58,8 @@ public class LoginDAO {
 		return false;
 	}
 
-	/**
-	 * DTO取得メソッド
-	 * @return DTO
-	 */
 	public LoginDTO getDto() {
 		return dto;
 	}
+
 }

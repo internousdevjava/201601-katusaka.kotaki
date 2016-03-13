@@ -14,16 +14,16 @@
 		<result name= "success">create_user.jsp</result>
 	</action>-->
 
-    <!-- 絵柄設定へ遷移
+    <!-- 絵柄設定へ遷移-->
     <action name="GoEgaraAction" class="com.internousdevwork.mackeypark.action.GoEgaraAction" method="execute">
 	<result name="success">choise_design.jsp</result>
-	</action>-->
+	</action>
 
-	<!-- 絵柄設定に戻る
+	<!-- 絵柄設定に戻る-->
 	<action name="ReturnEgaraAction" class="com.internousdevwork.mackeypark.action.ReturnEgaraAction" method="execute">
 	<result name="success">choise.jsp</result>
 	<result name="error">choise_design.jsp</result>
-	</action>-->
+	</action>
 
 	<!-- 購入確認へ
 	<action name="GoPurchaseAction" class="com.internousdevwork.mackeypark.action.GoPurchaseAction" method="execute">
@@ -38,9 +38,9 @@
 
 	<!-- ログイン認証-->
 	<action name="LoginAction"
-		class="com.internous.action.LoginAction" method="execute">
+		class="com.internousdevwork.mackeypark.action.LoginAction" method="execute">
 		<result name="success">main.jsp</result>
-		<result name="error">error.jsp</result>
+		<result name="error">user_login.jsp</result>
 	</action>
 
 	<!-- Facebook認証を行うアクション
